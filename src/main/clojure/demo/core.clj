@@ -1,5 +1,7 @@
 (ns demo.core
-  #_(:require [demo.DemoClass]))
+  (:require #_[demo.DemoClass]
+            [clojure.java.io :as io]
+            [xtdb.api :as xt]))
 
 (defn foo [x]
   (->> (range)
@@ -12,6 +14,12 @@
 (defn bar [x]
   (println "BAR" x)
   (dec x))
+
+(defn start-xtdb []
+  (xt/start-node {}))
+
+(defn stop-xtdb [node]
+  (.close node))
 
 #_(foo 123)
 

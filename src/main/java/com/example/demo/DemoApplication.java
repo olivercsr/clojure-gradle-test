@@ -21,16 +21,22 @@ public class DemoApplication {
 
 		IFn cljFoo = Clojure.var("demo.core", "foo");
 		IFn cljBar = Clojure.var("demo.core", "bar");
-		System.out.println("Clojure foo: ");
+		System.out.print("Clojure foo: ");
 		System.out.println(cljFoo.invoke(123));
-		System.out.println("Clojure bar: ");
+		System.out.print("Clojure bar: ");
 		System.out.println(cljBar.invoke(123));
 
 		DemoClass dc = new DemoClass();
 		dc.foo((long)999);
 		dc.bar((long)999);
 
+		IFn cljStartXtdb = Clojure.var("demo.core", "start-xtdb");
+		IFn cljStopXtdb = Clojure.var("demo.core", "stop-xtdb");
+		Object node = cljStartXtdb.invoke();
+		System.out.print("Xtdb Node: ");
+		System.out.println(node);
+		cljStopXtdb.invoke(node);
+
 		SpringApplication.run(DemoApplication.class, args);
 	}
-
 }
