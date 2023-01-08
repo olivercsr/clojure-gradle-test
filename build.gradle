@@ -31,10 +31,16 @@ tasks.named('test') {
 clojure {
 	builds {
 		main {
-			aotNamespaces.add('demo.core')
+			classpath.from = sourceSets.main.compileClasspath
 			//checkAll()
+			//aotNamespaces.add('demo.core')
+			//aotNamespaces.add('demo.DemoClass')
+			aotAll()
 			reflection = 'warn'
 		}
 	}
 }
 
+tasks.named('compileJava') {
+	classpath += files(sourceSets.main.clojure.classesDirectory)
+}
