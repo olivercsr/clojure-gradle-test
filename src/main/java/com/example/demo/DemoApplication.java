@@ -3,6 +3,8 @@ package com.example.demo;
 import clojure.java.api.Clojure;
 import clojure.lang.IFn;
 
+import demo.DemoClass;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -23,6 +25,10 @@ public class DemoApplication {
 		System.out.println(cljFoo.invoke(123));
 		System.out.println("Clojure bar: ");
 		System.out.println(cljBar.invoke(123));
+
+		DemoClass dc = new DemoClass();
+		dc.foo((long)999);
+		dc.bar((long)999);
 
 		SpringApplication.run(DemoApplication.class, args);
 	}

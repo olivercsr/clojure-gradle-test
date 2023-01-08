@@ -1,6 +1,11 @@
-(ns demo.core)
+(ns demo.core
+  #_(:require [demo.DemoClass]))
 
 (defn foo [x]
+  (->> (range)
+       (take-while #(<= % 0xFF))
+       (remove #{1 2 3 4})
+       (into []))
   (println "FOO" x)
   (inc x))
 
