@@ -29,6 +29,8 @@ public class DemoApplication {
 		DemoClass dc = new DemoClass();
 		dc.foo((long)999);
 		dc.bar((long)999);
+		dc.start();
+		dc.stop();
 
 		IFn cljStartXtdb = Clojure.var("demo.core", "start-xtdb");
 		IFn cljStopXtdb = Clojure.var("demo.core", "stop-xtdb");
